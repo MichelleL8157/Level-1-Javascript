@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hot and Cold</title>
+        <style></style>
+        <script>
+            function simulate() {
+                console.log("You will have 10 attempts to guess the number between 1-100.");
+                num = Math.round((Math.random() * 100) + 1);
+                for (var i = 1; i < 11; i++) {
+                    const readline = require("readline");
+                    const rl = readline.createInterface({
+                        input: process.stdin,
+                        output: process.stdout,
+                    });
+                    let guess = "";
+                    rl.question("Guess:", function (int)) {
+                        guess = int;
+                        if (guess == num) {
+                            stop;
+                        } else {
+                            if (Math.abs(guess - num) < 15) {
+                                console.log("HOT");
+                            } else {
+                                console.log("COLD");
+                            }
+                        }
+                        rl.close();
+                    }
+                    if (guess == num) {
+                        console.log("You found the number!");
+                    } else {
+                        console.log("Unforutnately you didn't find the number, which was " + num);
+                    }
+                }
+            }
+           function initialize() {
+                outputDiv = document.getElementById("divout");
+            }
+        </script>
+    </head>
+    <body onload = "initialize();">
+        <div id = "output"></div>
+        <hr />
+        <button onclick = "simulate()">START</button>
+    </body>
+</html>
+<!--
+    Michelle Liu, WEB DEV, Pd. 7-8
+-->
