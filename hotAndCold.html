@@ -1,50 +1,37 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Hot and Cold</title>
-        <style></style>
-        <script>
-            function simulate() {
-                console.log("You will have 10 attempts to guess the number between 1-100.");
-                num = Math.round((Math.random() * 100) + 1);
-                for (var i = 1; i < 11; i++) {
-                    const readline = require("readline");
-                    const rl = readline.createInterface({
-                        input: process.stdin,
-                        output: process.stdout,
-                    });
-                    let guess = "";
-                    rl.question("Guess:", function (int)) {
-                        guess = int;
-                        if (guess == num) {
-                            stop;
-                        } else {
-                            if (Math.abs(guess - num) < 15) {
-                                console.log("HOT");
-                            } else {
-                                console.log("COLD");
-                            }
-                        }
-                        rl.close();
-                    }
-                    if (guess == num) {
-                        console.log("You found the number!");
-                    } else {
-                        console.log("Unforutnately you didn't find the number, which was " + num);
-                    }
-                }
-            }
-           function initialize() {
-                outputDiv = document.getElementById("divout");
-            }
-        </script>
-    </head>
-    <body onload = "initialize();">
-        <div id = "output"></div>
-        <hr />
-        <button onclick = "simulate()">START</button>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot and Cold</title>
+</head>
+<body>
+    <h1>Hot and Cold</h1>
+    <p>You will have 5 attempts to guess the number between 1-100.<br>
+        Check the console log for the updates below.</p>
+    <p>Within 5 - Very Hot (This will not reduce the guess count.)<br>
+        Within 6 - 8 Hot<br>
+        Within 9 - 15 Very Warm<br>
+        Within 16 - 20 Warm<br>
+        Within 21 - 30 Cool<br>
+        Within 31 - 40 Very Cool<br>
+        Within 41 - 55 Cold<br>
+        >55 away - Very Cold<br>
+        </p>
+    <p id="currGuess">Guess: 50</p>
+    <p id="guessCount">Guesses Left: 5</p>
+    <label>Add or Sub(tract) Guessed Number:</label><br>
+    <button type="button" id="add1">Add 1</button>
+    <button type="button" id="add5">Add 5</button>
+    <button type="button" id="add10">Add 10</button>
+    <button type="button" id="add25">Add 25</button><br>
+    <button type="button" id="sub1">Sub 1</button>
+    <button type="button" id="sub5">Sub 5</button>
+    <button type="button" id="sub10">Sub 10</button>
+    <button type="button" id="sub25">Sub 25</button><br><br>
+    <button type="button" id="commit">COMMIT</button><br>
+    <button type="button" id="reset">RESET</button>
+    <script src="index.js"></script>
+</body>
 </html>
-<!--
-    Michelle Liu, WEB DEV, Pd. 7-8
--->
