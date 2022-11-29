@@ -1,3 +1,4 @@
+//Michelle Liu, Period 78 Even, 11/28/2022, Level 1 Project: Hot and Cold
 guess = 50;
 triesLeft = 5;
 num = Math.round(Math.random() * 99) + 1;
